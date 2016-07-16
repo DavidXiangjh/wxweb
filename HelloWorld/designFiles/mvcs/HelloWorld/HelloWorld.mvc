@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<EMPMVC name="HelloWorld" x="0" height="464" width="633" y="0">
+	<action id="HelloWorldSubmit" name="action0" x="15" height="80" width="180" type="normal" checkSession="false" y="170">
+		<reference name="ref0" dest="flow1"/>
+	</action>
+	<flow id="HelloWorld" name="flow1" x="231" height="70" width="160" refId="hello" y="178" fileName="HelloWorld.biz">
+		<transition name="transition0" dest="view1" retValue="success"/>
+		<transition name="transition1" dest="view3" retValue="failed"/>
+	</flow>
+	<view id="helloOut.jsp" name="view1" x="463" height="70" jspFile="jsp/helloOut.jsp" width="160" y="175"/>
+	<view id="helloIn.jsp" name="view2" x="257" height="70" jspFile="jsp/helloIn.jsp" width="160" y="48"/>
+	<action id="HelloWorld" name="action1" x="12" height="70" width="160" type="normal" checkSession="false" y="48">
+		<reference name="ref0" dest="view2"/>
+	</action>
+	<view id="helloIn.jsp" name="view3" x="395" height="70" jspFile="jsp/helloIn.jsp" width="160" y="327"/>
+</EMPMVC>

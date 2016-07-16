@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<SelfDefinedOp.xml id="HelloWorld">
+	<EMPBusinessLogic id="HelloWorld" operationContext="HelloWorldSrvCtx">
+		<operation id="hello" name="打招呼">
+			<input>
+				<field id="userId"/>
+			</input>
+			<flow>
+				<action id="StartAction0" implClass="com.ecc.emp.flow.EMPStartAction">
+					<transition dest="EndAction0" condition="$userId='EMP'"/>
+					<transition dest="EndAction1" condition="$userId!='EMP'"/>
+				</action>
+				<action id="EndAction0" result="success" implClass="com.ecc.emp.flow.EMPEndAction"/>
+				<action id="EndAction1" result="failed" implClass="com.ecc.emp.flow.EMPEndAction"/>
+				<action id="UpdateChangedDataAction0" implClass="com.ecc.liana.loaf.action.UpdateChangedDataAction" dataSource="ebank_ds" transactionType="1"/>
+			</flow>
+		</operation>
+	</EMPBusinessLogic>
+	<context id="HelloWorldSrvCtx" type="op">
+		<refKColl refId="HelloWorldSrvData"/>
+	</context>
+	<kColl id="HelloWorldSrvData">
+		<field id="errorCode"/>
+		<field id="errorMsg"/>
+		<field id="userId"/>
+	</kColl>
+</SelfDefinedOp.xml>

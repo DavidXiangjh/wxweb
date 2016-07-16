@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+<nodedefine>
+	<root>
+		<datas>
+		</datas>
+		<refServices>
+			<refService id="transactionManager" access="root"/>
+			<refService id="tableService" access="root"/>
+			<refService id="sqlService" access="root"/>
+		</refServices>
+	</root>
+	<channelSettings>
+		<channel id="APP">
+			<document>默认应用</document>
+			<sessionDatas>
+			</sessionDatas>
+			<refServices>
+			</refServices>
+		</channel>
+	</channelSettings>
+	<CommonData>		
+	</CommonData>
+</nodedefine>

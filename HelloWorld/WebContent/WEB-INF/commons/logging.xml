@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+	    <appender-ref ref="LOGFILE"/>
+		  <appender-ref ref="STDOUT"/>
+	</appender>
+	
+  <appender name="LOGFILE" class="org.apache.log4j.FileAppender">
+		<param name="File" value="${ROOTPATH}WEB-INF/logs/emp.log"/>
+    <param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+  		     <param name="ConversionPattern" 
+                            value="%d{ISO8601} %-5p %10c - %m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+           <layout class="org.apache.log4j.PatternLayout">
+             <param name="ConversionPattern"
+		    value="%d{ISO8601} %-5p %10c - %m%n"/>
+           </layout>	    
+	</appender>
+	
+	<category name="CTP">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->CORE">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->CS">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->HTML">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->CICS">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->MQ">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->GUIB">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->DWESK">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->AUTO">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->EVMG">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->FPRT">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->SMPL">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->CSES">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->DBCON">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->EJBACC">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->JSPT">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->MONITOR">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->SESSCHECK">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="->TCPIP">
+	  <priority value="warn" />
+	</category>
+
+	<category name="->unAssigned">
+	  <priority value="warn" />
+	</category>
+	
+	<category name="unAssigned">
+	  <priority value="info" />
+	</category>
+	
+	<category name="FLOW">
+	  <priority value="debug" />
+	  <appender-ref ref="LOGFILE" />
+	</category>
+
+	<root>
+	   <priority value ="info" />
+   	 <appender-ref ref="ASYNC" />
+	</root>
+	
+</log4j:configuration>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GBK" ?>
+
+
+<empDataTypeDef.xml>
+	<Currency id="Currency" name="余额数据" max="54000" precision="19" min="100" scale="2"/>
+	<Byte id="Byte" name="字节数据" max="40" min="10"/>
+	<Byte id="Itemstatus" name="功能状态" max="99" min="0"/>
+	<Byte id="Userstatus" name="柜员状态" max="99" min="0"/>
+	<Byte id="Userlevel" name="柜员级别" max="99" min="0"/>
+</empDataTypeDef.xml>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="GBK" ?>
+
+<EditorProfile rootElement="flow">
+	<elementCatalog id="rootCatalog" name="rootCatalog" showInToolPanel="false">
+		<Element id="flow" name="flow" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" iconName="/images/newElement.gif">
+			<childElements>
+				<child id="TrainTestAction" allowedCount="*"/>
+				<child id="TrainTestCompareJinEAction" allowedCount="*"/>
+				<child id="TrainTestDateAction" allowedCount="*"/>
+				<child id="QureyDataDetailAction" allowedCount="*"/>
+				<child id="QueryDataDetailUsingSQLAction" allowedCount="*"/>
+				<child id="QueryDataDetailUsingSQLParamAction" allowedCount="*"/>
+				<child id="QueryDataListAction" allowedCount="*"/>
+				<child id="QueryDataListByPageAction" allowedCount="*"/>
+				<child id="QueryDataListByPageUsingSpecialSQLAction" allowedCount="*"/>
+				<child id="QueryDataListByPageUsingSQLparamAction" allowedCount="*"/>
+				<child id="QueryDataListUsingSpecialSQLAction" allowedCount="*"/>
+				<child id="QureyDataDetailBatchAction" allowedCount="*"/>
+				<child id="UpdateChangedDataAction" allowedCount="*"/>
+				<child id="UpdateChangedDataBatchAction" allowedCount="*"/>
+			</childElements>
+			<document/>
+		</Element>
+	</elementCatalog>
+	<elementCatalog id="TestOne" name="第一组自定义组件">
+		<Element id="TrainTestAction" name="培训测试" implClass="com.ecc.cgb.ran.test.TrainTestAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="trainCode" attrName="交易码" attrType="String" mustSet="true" valueList="pb=个人网银;cb=企业网银;">
+						</attr>
+				<attr id="tranName" attrName="交易名" attrType="String" mustSet="true">
+						</attr>
+				<attr id="channelType" attrName="所属渠道" attrType="String">
+						</attr>
+			</attributes>
+			<childElements>
+			</childElements>
+			<document/>
+		</Element>
+		<Element id="TrainTestCompareJinEAction" name="比较金额" implClass="com.ecc.cgb.ran.test.TrainTestCompareJinEAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="jine1" attrName="金额1" attrType="float" mustSet="true">
+						</attr>
+				<attr id="jine2" attrName="金额2" attrType="float" mustSet="true">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="TrainTestDateAction" name="获取8/14位日期" implClass="com.ecc.cgb.ran.test.TrainTestDateAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="dateLength" attrName="长度" attrType="int" mustSet="true" defaultValue="8" valueList="8=年月日;14=年月日时分秒;">
+						</attr>
+				<attr id="dateStr" attrName="保存域名" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="datePattern" attrName="日期格式">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+	</elementCatalog>
+	<elementCatalog id="dbAccess" name="数据库访问[Liana]">
+		<Element id="QureyDataDetailAction" name="查询单笔数据[LOAF]" implClass="com.ecc.liana.loaf.action.QureyDataDetailAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="dataSource" attrName="数据源" attrType="String" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor">
+						</attr>
+				<attr id="transactionType" attrName="事务类型" attrType="int" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="businessCodeField" attrName="交易代码输入域" attrType="String" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="businessCode" attrName="交易代码">
+						</attr>
+				<attr id="throwException" attrName="是否将异常抛出" attrType="boolean" defaultValue="true" valueList="true=将异常抛出;false=记录异常但不抛出;">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataDetailUsingSQLAction" name="定制SQL查询单笔数据[LOAF]" implClass="com.ecc.liana.loaf.action.QueryDataDetailUsingSQLAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/db_obj.gif">
+			<attributes>
+				<attr id="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="querySql" attrName="查询SQL" attrType="string" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="outputFields" attrName="输出参数列表" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataDetailUsingSQLParamAction" name="定制SQL（入参）查询单笔数据[LOAF]" implClass="com.ecc.liana.loaf.action.QueryDataDetailUsingSQLParamAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/db_obj.gif">
+			<attributes>
+				<attr id="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="querySql" attrName="查询SQL" attrType="string" mustSet="true" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="outputFields" attrName="输出参数列表" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QureyDataDetailBatchAction" name="批量查询单笔数据[LOAF]" implClass="com.ecc.liana.loaf.action.QureyDataDetailBatchAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/db_obj.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="businessCodeField" attrName="交易代码输入域" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="businessCode" attrName="交易代码">
+						</attr>
+				<attr id="ICollName" attrName="输入数据的iColl" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="copyFields" attrName="从context拷贝的字段" desc= "使用||分隔字段"/>
+				<attr id="throwException" attrName="是否将异常抛出" defaultValue="true" valueList="true=将异常抛出;false=记录异常但不抛出;">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="UpdateChangedDataAction" name="操作单笔数据[LOAF]" implClass="com.ecc.liana.loaf.action.UpdateChangedDataAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="opType" attrName="操作类型" mustSet="true" valueList="1=新增;2=删除;3=修改;4=更新;">
+						</attr>
+				<attr id="businessCodeField" attrName="交易代码输入域" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="businessCode" attrName="交易代码">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="UpdateChangedDataBatchAction" name="操作多笔数据[LOAF]" implClass="com.ecc.liana.loaf.action.UpdateChangedDataBatchAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/db_obj.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="opType" attrName="操作类型" mustSet="true" valueList="1=新增;2=删除;3=修改;4=更新;">
+						</attr>
+				<attr id="businessCodeField" attrName="交易代码输入域" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="businessCode" attrName="交易代码">
+						</attr>
+				<attr id="ICollName" attrName="输入数据的iColl" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="copyFields" attrName="从context拷贝的字段" desc= "使用||分隔字段"/>
+				<attr id="throwException" attrName="是否将异常抛出" defaultValue="true" valueList="true=将异常抛出;false=记录异常但不抛出;">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataListAction" name="查询数据列表[LOAF]" implClass="com.ecc.liana.loaf.action.QueryDataListAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="states" attrName="states" editable="false" valueList="1=没有查询到任何数据;">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="businessCodeField" attrName="交易代码输入域" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="businessCode" attrName="交易代码">
+						</attr>
+				<attr id="ICollName" attrName="结果集" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+				<attr id="maxNumber" attrName="最大返回条数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataListByPageAction" name="分页查询数据列表[LOAF]" implClass="com.ecc.liana.loaf.action.QueryDataListByPageAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="businessCodeField" attrName="交易代码输入域" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="businessCode" attrName="交易代码">
+						</attr>
+				<attr id="ICollName" attrName="结果集" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="beginPosFieldName" attrName="起始位置数据域名称" mustSet="true" defaultValue="turnPageBeginPos" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="showNumFieldName" attrName="每页显示条数数据域名称" mustSet="true" defaultValue="turnPageShowNum" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="totalNumFieldName" attrName="查询总数数据域名称" mustSet="true" defaultValue="turnPageTotalNum" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataListByPageUsingSpecialSQLAction" name="定制SQL分页查询数据列表[LOAF]" implClass="com.ecc.cgb.loaf.action.QueryDataListByPageUsingSQLAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="ICollName" attrName="ICollName" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="beginPosFieldName" attrName="起始位置数据域名称" mustSet="true" defaultValue="turnPageBeginPos" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="showNumFieldName" attrName="每页显示条数数据域名称" mustSet="true" defaultValue="turnPageShowNum" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="totalNumFieldName" attrName="查询总数数据域名称" mustSet="true" defaultValue="turnPageTotalNum" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="querySql" attrName="查询SQL" attrType="String" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="queryFields" attrName="最外层的查询" attrType="String" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="outputFields" attrName="输出参数字段列表" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor" desc= "使用||分隔输出的字段"/>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataListByPageUsingSQLparamAction" name="定制SQL(入参)分页查询数据列表" implClass="com.ecc.cgb.loaf.action.QueryDataListByPageUsingSQLparamAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/newElement.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="ICollName" attrName="ICollName" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="beginPosFieldName" attrName="起始位置数据域名称" mustSet="true" defaultValue="turnPageBeginPos" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="showNumFieldName" attrName="每页显示条数数据域名称" mustSet="true" defaultValue="turnPageShowNum" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="totalNumFieldName" attrName="查询总数数据域名称" mustSet="true" defaultValue="turnPageTotalNum" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="sqlParamField" attrName="查询SQL" attrType="String" mustSet="true" editorClass="com.ecc.ide.editor.transaction.DataNamePropertyEditor">
+						</attr>
+				<attr id="queryFields" attrName="最外层的查询" attrType="String" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="outputFields" attrName="输出参数字段列表" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor" desc= "使用||分隔输出的字段"/>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+		<Element id="QueryDataListUsingSpecialSQLAction" name="定制SQL查询数据列表[LOAF]" implClass="com.ecc.liana.loaf.action.QueryDataListUsingSpecialSQLAction" wrapperClass="com.ecc.ide.editor.visualflow.ActionElementWrapper" visualType="Label" iconName="/images/db_obj.gif">
+			<attributes>
+				<attr id="label" attrName="label">
+						</attr>
+				<attr id="dataSource" attrName="数据源" mustSet="true" defaultValue="ebank_ds" editorClass="com.ecc.ide.editor.service.ServicePropertyEditor" desc= "所使用的数据源的定义名称。"/>
+				<attr id="transactionType" attrName="事务类型" defaultValue="1" valueList="0=沿用当前事务;1=独立的事务;">
+						</attr>
+				<attr id="ICollName" attrName="ICollName" mustSet="true" editorClass="com.ecc.ide.editor.data.DataCollectionPropertyEditor">
+						</attr>
+				<attr id="querySql" attrName="查询SQL" attrType="String" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor">
+						</attr>
+				<attr id="outputFields" attrName="输出参数字段列表" mustSet="true" editorClass="com.ecc.ide.editor.TextAreaPropertyEditor" desc= "使用||分隔输出的字段"/>
+				<attr id="sortParam" attrName="排序参数">
+						</attr>
+				<attr id="maxNumber" attrName="最大返回条数">
+						</attr>
+			</attributes>
+			<document/>
+		</Element>
+	</elementCatalog>
+</EditorProfile>

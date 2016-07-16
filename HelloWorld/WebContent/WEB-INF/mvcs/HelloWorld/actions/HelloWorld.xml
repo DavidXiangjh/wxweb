@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<actionDefines>
+	<action id="HelloWorldSubmit" type="normal" checkSession="false">
+		<refFlow flowId="HelloWorld" op="hello">
+			<transition dest="view1" condition="$retValue='success'"/>
+			<transition dest="view3" condition="$retValue='failed'"/>
+		</refFlow>
+		<Map name="outputViews" class="java.util.HashMap">
+			<jspView id="view1" url="jsp/helloOut.jsp"/>
+			<jspView id="view3" url="jsp/helloIn.jsp"/>
+		</Map>
+	</action>
+	<action id="HelloWorld" type="normal" checkSession="false">
+		<jspView id="helloIn.jsp" url="jsp/helloIn.jsp"/>
+	</action>
+</actionDefines>

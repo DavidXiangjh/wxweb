@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<contexts.xml>
+	<context id="rootCtx" type="root">
+		<refKColl refId="rootKColl"/>
+		<refService alias="transactionManager" type="service" refId="transactionManager"/>
+		<refService alias="tableService" type="service" refId="tableService"/>
+		<refService alias="sqlService" type="service" refId="sqlService"/>
+	</context>
+	<context id="APPChannelCtx" parent="rootCtx" type="channel">
+		<refKColl refId="APPChannelKColl"/>
+	</context>
+	<context id="APPSessionCtx" parent="APPChannelCtx" type="session">
+		<refKColl refId="APPSessionKColl"/>
+	</context>
+</contexts.xml>

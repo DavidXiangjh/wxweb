@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<dataDictionary.xml>
+	<dataElement id="errorCode" access="session" label="错误代码"/>
+	<dataElement id="errorMsg" access="session" label="错误信息"/>
+	<dataElement id="serviceId" label="服务代码"/>
+	<dataElement id="sessionId" label="Session id"/>
+	<dataElement id="currentPage" label="currentPage"/>
+	<dataElement id="targetPage" label="targetPage"/>
+	<dataElement id="firstKey" label="firstKey"/>
+	<dataElement id="lastKey" label="lastKey"/>
+	<dataElement id="pageMode" label="pageMode"/>
+	<dataElement id="curIdx" label="curIdx"/>
+	<dataElement id="recordSize" label="recordSize"/>
+	<dataElement id="selectKey" label="selectKey"/>
+	<DataTypes/>
+	<CommonData/>
+	<dataElement id="userId" label="用户标识"/>
+</dataDictionary.xml>

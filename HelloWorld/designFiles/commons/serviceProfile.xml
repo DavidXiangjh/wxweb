@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GBK" ?>
+
+<EditorProfile rootElement="Services">
+	<elementCatalog id="rootCatalog" name="rootCatalog">
+		<Element id="Services" name="Services">
+			<childElements>				
+			</childElements>
+			<document/>
+		</Element>
+	</elementCatalog>
+</EditorProfile>

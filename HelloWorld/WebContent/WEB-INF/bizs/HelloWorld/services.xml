@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<dsesrvce.XML>
+	<DataSourceTransactionManager id="transactionManager" implClass="com.ecc.emp.transaction.DataSourceTransactionManager"/>
+	<TableService id="tableService" implClass="com.ecc.emp.jdbc.table.TableService"/>
+	<SQLExecService id="sqlService" implClass="com.ecc.emp.jdbc.sql.SQLExecService"/>
+</dsesrvce.XML>

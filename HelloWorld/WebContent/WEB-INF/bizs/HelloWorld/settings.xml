@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+<settings.xml>
+	<kColl id="settings">
+		<kColl id="files">
+			<field id="data" value="data.xml"/>
+			<field id="format" value="formats.xml"/>
+			<field id="context" value="contexts.xml"/>
+			<field id="service" value="services.xml"/>
+			<field id="operation" value="operations.xml"/>
+			<field id="dataType" value="dataType.xml"/>
+			<field id="dataTypeDef" value="dataTypeDef.xml"/>
+			<field id="mbean" value="mbeans.xml"/>
+			<kColl id="operations"/>
+		</kColl>
+		<kColl id="packages">
+			<kColl id="operations"/>
+			<kColl id="processors"/>
+		</kColl>
+		<kColl id="paths">
+			<field id="entities" value="./"/>
+			<field id="operations" value="operations"/>
+			<field id="hostLogPath" value="hostTranLog"/>
+			<field id="deviceSettings" value="devices"/>
+		</kColl>
+		<kColl id="tags">
+			<kColl id="contexts">
+				<field id="context" description="compound" value="com.ecc.cte.base.Context"/>
+				<field id="refKColl"/>
+				<field id="refService"/>
+			</kColl>
+			<kColl id="data">
+				<field id="field" value="com.ecc.emp.data.DataField"/>
+				<field id="kColl" value="com.ecc.emp.data.KeyedCollection"/>
+				<field id="iColl" value="com.ecc.emp.data.IndexedCollection"/>
+				<field id="refData"/>
+			</kColl>
+			<kColl id="operations">
+				<field id="MCIOperation" value="com.ecc.emp.flow.EMPFlow"/>
+				<field id="ECCServerOperation" value="com.ecc.emp.flow.EMPFlow"/>
+				<field id="EMPBusinessLogic" value="com.ecc.emp.flow.EMPBusinessLogic"/>
+				<field id="operation" value="com.ecc.emp.flow.Operation"/>
+				<field id="input" value="com.ecc.emp.data.KeyedCollection"/>
+				<field id="output" value="com.ecc.emp.data.KeyedCollection"/>
+				<field id="iColl" value="com.ecc.emp.data.IndexedCollection"/>
+				<field id="field" value="com.ecc.emp.data.DataField"/>
+				<field id="flow" value="com.ecc.emp.flow.EMPFlow"/>
+				<field id="transition" value="com.ecc.emp.flow.Transition"/>
+				<field id="kColl" value="com.ecc.emp.data.KeyedCollection"/>
+				<field id="for" value="com.ecc.emp.privilege.ForByIcollAction"/>
+				<field id="insideFlow" value="com.ecc.emp.flow.EMPFlow" />
+			</kColl>
+			<kColl id="formats">
+				<field id="fmtDef" value="com.ecc.emp.format.FormatElement"/>
+				<field id="record" value="com.ecc.emp.format.KeyedFormat"/>
+				<field id="iColl" value="com.ecc.emp.format.IndexedFormat"/>
+				<field id="fString" value="com.ecc.emp.format.String.StringFormat"/>
+				<field id="nullCheck" value="com.ecc.emp.format.String.NullCheck"/>
+				<field id="delim" value="com.ecc.emp.format.String.Delimiter"/>
+				<field id="xmlWrap" value="com.ecc.emp.format.xml.XMLWrapFormat"/>
+				<field id="xmlHead" value="com.ecc.emp.format.xml.XMLHeadTagFormat"/>
+				<field id="xmlIColl" value="com.ecc.emp.format.xml.XMLIndexedFormat"/>
+				<field id="xmlFullTag" value="com.ecc.emp.format.xml.XMLFullTagFormat"/>
+				<field id="xmlTag" value="com.ecc.emp.format.xml.XMLTagFormat"/>
+				<field id="xmlConstantTag" value="com.ecc.emp.format.xml.XMLConstantTagFormat"/>
+				<field id="ISO8583PkgFmt" value="com.ecc.emp.format.ISO8583.ISO8583Format"/>
+				<field id="ISO8583Field" value="com.ecc.emp.format.ISO8583.ISO8583Field"/>
+				<field id="FixedLenFormat" value="com.ecc.emp.format.String.FixedLenFormat"/>
+				<field id="IDStringFormat" value="com.ecc.emp.format.String.IDStringFormat"/>
+				<field id="ConstantFormat" value="com.ecc.emp.format.String.ConstantFormat"/>
+			</kColl>
+			<kColl id="opSteps"/>
+			<kColl id="services">
+				<field id="input" value="com.ecc.emp.jdbc.sql.SQLParameterCollection"/>
+				<field id="output" value="com.ecc.emp.jdbc.sql.SQLParameterCollection"/>
+				<field id="JDBCSQLDef" value="com.ecc.emp.jdbc.sql.JDBCSQLDef"/>
+				<field id="param" value="com.ecc.emp.jdbc.sql.SQLParameter"/>
+				<field id="DataSourceTransactionManager" value="com.ecc.emp.transaction.DataSourceTransactionManager"/>
+				<field id="JTATransactionManager" value="com.ecc.emp.transaction.JTATransactionManager"/>
+				<field id="JDBCDriverDataSource" value="com.ecc.emp.jdbc.JDBCDriverDataSource"/>
+				<field id="JNDIDataSource" value="com.ecc.emp.jdbc.JNDIDataSource"/>
+				<field id="JDBCSQLExecService" value="com.ecc.emp.jdbc.sql.JDBCSQLExecService"/>
+				<field id="JDBCTableService" value="com.ecc.emp.jdbc.table.JDBCTableService"/>
+				<field id="column" value="com.ecc.emp.jdbc.table.TableColumn"/>
+				<field id="QuartzScheduleManager" value="com.ecc.emp.schedule.quartz.EMPQuartzScheduleManager"/>
+				<field id="CommonjScheduleManager" value="com.ecc.emp.schedule.EMPCommonJScheduleManager"/>
+				<field id="scheduledJob" value="com.ecc.emp.schedule.EMPScheduledJob"/>
+				<field id="timmerManagerResource" value="com.ecc.emp.schedule.commonj.TimerManagerResource"/>
+				<field id="workManagerResource" value="com.ecc.emp.schedule.commonj.WorkManagerResource"/>
+				<field id="simpleTimerJob" value="com.ecc.emp.schedule.EMPSimpleTimerScheduledJob"/>
+				<field id="cronTimerJob" value="com.ecc.emp.schedule.EMPCronTimerScheduledJob"/>
+				<field id="simpleTimer" value="com.ecc.emp.schedule.EMPSimpleTimerSchedule"/>
+				<field id="cronTimer" value="com.ecc.emp.schedule.EMPCronTimerSchedule"/>
+				<field id="empFlowJob" value="com.ecc.emp.schedule.EMPFlowExecuteWork"/>
+				<field id="EMPClassMethodInvorkWork" value="com.ecc.emp.schedule.EMPClassMethodInvorkWork"/>
+				<field id="TimerScheduleManager" value="com.ecc.emp.schedule.timer.EMPTimerScheduleManager"/>
+				<field id="JDBCBatchSQLService" value="com.ecc.emp.jdbc.batchsql.JDBCBatchSQLService"/>
+			</kColl>
+		</kColl>
+	</kColl>
+</settings.xml>

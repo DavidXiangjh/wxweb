@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB18030" ?>
+
+
+<MCITransaction trxName="HelloWorld" trxCode="HelloWorld">
+	<datas>
+		<refData access="private" refId="errorCode"/>
+		<refData access="private" refId="errorMsg"/>
+		<refData access="private" refId="userId"/>
+	</datas>
+	<document/>
+	<services/>
+	<formats/>
+	<operation id="hello" name="打招呼">
+		<document/>
+		<flow name="flow1" x="10" height="400" width="500" y="10">
+			<StartAction name="StartAction0" x="100" height="40" width="100" y="50">
+				<transition name="transition0" dest="EndAction0" condition="$userId='EMP'"/>
+				<transition name="transition1" dest="EndAction1" condition="$userId!='EMP'"/>
+			</StartAction>
+			<EndAction name="EndAction0" x="19" result="success" height="40" width="100" y="233"/>
+			<EndAction name="EndAction1" x="258" result="failed" height="40" width="100" y="235"/>
+			<UpdateChangedDataAction name="UpdateChangedDataAction0" height="40" x="264" width="100" transactionType="1" dataSource="ebank_ds" y="86"/>
+		</flow>
+		<input>
+			<refData refId="userId"/>
+		</input>
+		<output/>
+	</operation>
+</MCITransaction>

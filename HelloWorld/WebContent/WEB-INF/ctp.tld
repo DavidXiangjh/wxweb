@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+<tlibversion>1.0</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>ctp</shortname>
+<uri>/WEB-INF/CTP.tld</uri>
+<info>e-Channels CTP JSP Tag Library - (C) Copyright e-Channels Corp. 2002, 2005</info>
+
+<tag>
+	<name>label</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPLabelTag</tagclass>
+	<info>JSP中的Label支持</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>text</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>cltType</name> <required>false</required>
+	</attribute>
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>file</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPFileTag</tagclass>
+	<info>将相对路径的fileName转化为WebContext下的绝对路径</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>fileName</name>	<required>true</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>img</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPImageTag</tagclass>
+	<info>Image 标签，用于不用理会WebContext路径的ImageSrc,他将相对路径的src转化为WebContext下的绝对路径</info>
+	<attribute>
+		<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>src</name>	<required>true</required>
+	</attribute>
+	<attribute>
+		<name>alt</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>customAttr</name>
+	</attribute>
+
+</tag>
+
+<tag>
+	<name>jspURL</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPJSPURITag</tagclass>
+	<info>得到调用服务器端JSP的URI,自动添加SessionID的参数</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>jspFileName</name>	<required>true</required>
+	</attribute>
+
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>text</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPTextTag</tagclass>
+	<info>显示CTP数据项</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataTypeName</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>mapCollName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>mapValueName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>mapDescName</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>cltType</name> <required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>input</name>
+	<tagclass>com.ecc.emp.web.jsptags.EMPInputFieldTag</tagclass>
+	<info>输入项</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>value</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>type</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>dataType</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>required</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>size</name> <required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name> <required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>customAttr</name>
+	</attribute>
+
+	<attribute>
+		<name>valueDataName</name>
+	</attribute>
+	<attribute>
+
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+</tag>
+
+
+<tag>
+	<name>textArea</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPTextAreaTag</tagclass>
+	<info>输入项</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>cols</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>rows</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>customAttr</name>
+	</attribute>
+
+	<attribute>
+		<name>valueDataName</name>
+	</attribute>
+	<attribute>
+
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>cltType</name> <required>false</required>
+	</attribute>
+</tag>
+
+
+<tag>
+	<name>combobox</name>
+	<tagclass>com.ecc.emp.web.jsptags.EMPComboboxTag</tagclass>
+	<info>将CTP中的数据集合按照Combobox的方式显示</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>optionSrc</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>collName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>iCollName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>valueName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>descName</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>languageResouce</name>
+	</attribute>
+	<attribute>
+		<name>customAttr</name>
+	</attribute>
+	<attribute>
+		<name>itemStr</name>
+	</attribute>
+
+	<attribute>
+		<name>value</name>
+	</attribute>
+
+	<attribute>
+		<name>srcURL</name>
+	</attribute>
+	<attribute>
+		<name>dstURL</name>
+	</attribute>
+	<attribute>
+		<name>dstComboBox</name>
+	</attribute>
+	<attribute>
+		<name>formName</name>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name> <required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>type</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>select</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPSelectTag</tagclass>
+	<info>将CTP中的数据集合按照checkBox/radioBox的方式显示</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>value</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>dataName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>optionSrc</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>collName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>iCollName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>valueName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>descName</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>type</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>label</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>languageResouce</name>
+	</attribute>
+
+	<attribute>
+		<name>customAttr</name>
+	</attribute>
+
+	<attribute>
+		<name>type</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>cltType</name> <required>false</required>
+	</attribute>
+	<attribute>
+		<name>itemStr</name><required>false</required>
+	</attribute>
+</tag>
+
+
+
+<tag>
+	<name>URL</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPURLTag</tagclass>
+	<info>在页面中定义的URL</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>label</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>imageFile</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>target</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>href</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>isLayoutContent</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+</tag>
+
+
+<tag>
+	<name>jspAction</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPJSPActionTag</tagclass>
+	<info>在页面中调用服务器端的JSP</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>label</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>jspFileName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>imageFile</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>target</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>htmlCltOp</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>method</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>isLayoutContent</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>srvOpAction</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPSrvOpActionTag</tagclass>
+	<info>在页面中调用服务器端的交易定义</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>label</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>srvOpName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>imageFile</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>htmlCltOp</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>method</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>isLayoutContent</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>target</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>reqType</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>form</name>
+	<tagclass>com.ecc.emp.web.jsptags.EMPFormTag</tagclass>
+	<info>CTP的Form支持，自动添加框架范围内必须的hidden域</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>action</name>
+	</attribute>
+	<attribute>
+		<name>jspFileName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>srvOpName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>htmlCltOp</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>enctype</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>target</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>actionType</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>method</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>isSessionReq</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>reqType</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>isLayoutContent</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>customAttr</name>
+	</attribute>
+
+</tag>
+
+<tag>
+	<name>tabView</name>
+	<tagclass>com.ecc.emp.web.yui.jsptags.EMPTabContainer</tagclass>
+	<info>EMP Tab view support</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+	<attribute>
+		<name>isLayoutContent</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>orientation</name>	<required>false</required>
+	</attribute>
+	
+</tag>
+
+<tag>
+	<name>tab</name>
+	<tagclass>com.ecc.emp.web.yui.jsptags.EMPTabPanel</tagclass>
+	<info>EMP Tab view support</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	
+	<!-- 允许属性使用JSP表达式 -->
+	<attribute>
+		<name>dataSrc</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>label</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>cacheData</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>active</name>	<required>false</required>
+	</attribute>
+
+ 
+	<attribute>
+		<name>cltType</name>	<required>false</required>
+	</attribute>
+</tag>
+
+
+<tag>
+	<name>panel</name>
+	<tagclass>com.ecc.emp.web.yui.jsptags.EMPPanel</tagclass>
+	<info>EMP Panel view support</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	
+	<!-- 允许属性使用JSP表达式 -->
+	<attribute>
+		<name>dataSrc</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>title</name>	<required>false</required>
+	</attribute>
+</tag>
+
+<tag>
+	<name>table</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPTableTag</tagclass>
+	<info>实现将CTP中的集合数据转换为表格</info>
+	<attribute>
+			<name>name</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>collName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>iCollName</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>needTableTitle</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>toBeForm</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>formType</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>actionType</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>method</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>srvOpName</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>action</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>value</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+			<name>jspFileName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>titleClass</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>line1Class</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>line2Class</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>cellpadding</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>cellspacing</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>appendAttrs</name>	<required>false</required>
+	</attribute>
+	<attribute>
+			<name>border</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>htmlCltOp</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>width</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>cltType</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>isLayoutContent</name>	<required>false</required>
+	</attribute>
+
+
+</tag>
+
+<tag>
+	<name>tableColumn</name>
+	<tagclass>com.ecc.emp.web.jsptags.CTPTableColumnTag</tagclass>
+	<info>将CTP数据集合转化为表格时的表格列定义</info>
+	
+	<attribute>
+			<name>name</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>label</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>dataName</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>type</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>formFieldType</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>formDataName</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>formValue</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>selfAction</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>actionType</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>srvOpName</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>jspFileName</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>action</name><required>false</required>
+	</attribute>
+	
+	<attribute>
+		<name>CSSClass</name>	<required>false</required>
+	</attribute>
+	
+	<attribute>
+			<name>target</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>htmlCltOp</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>contentDivId</name><required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>mapCollName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>mapValueName</name>	<required>false</required>
+	</attribute>
+	<attribute>
+		<name>mapDescName</name>	<required>false</required>
+	</attribute>
+
+	<attribute>
+		<name>dataType</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>width</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>align</name><required>false</required>
+	</attribute>
+
+	<attribute>
+			<name>valign</name><required>false</required>
+	</attribute>
+</tag>
+<tag>
+	<name>data</name>
+	<tagclass>com.ecc.emp.web.jsptags.EMPDataTag</tagclass>
+	<info></info>
+	<attribute>
+			<name>name</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>icollName</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>line</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>dataName</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>kcollName</name><required>false</required>
+	</attribute>
+</tag>
+<tag>
+	<name>pageIndex</name>
+	<tagclass>com.ecc.emp.web.jsptags.EMPPageIndexTag</tagclass>
+	<info>分页查询标签</info>
+	<attribute>
+			<name>name</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>submitFormName</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>maxPageNum</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>maxLine</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>previous_next</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>first_last</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>enquiryPageLabel</name><required>false</required>
+	</attribute>
+	<attribute>
+			<name>jumpPageLabel</name><required>false</required>
+	</attribute>
+</tag>
+
+
+	<tag>
+		<name>yuiInclude</name>
+		<tagclass>com.ecc.emp.web.yui.jsptags.EMPYuiInclude</tagclass>
+		<info>YUI 包含文件</info>
+		<attribute>
+			<name>scriptPath</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>layout</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>menu</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>treeView</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>combobox</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>tabView</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>tabType</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>animation</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>dragdrop</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>softKeyboard</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>periodicalUpdater</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>workBench</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>theme</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>wizard</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	
+	
+	<tag>
+		<name>menu</name>
+		<tagclass>com.ecc.emp.web.yui.jsptags.EMPMenu</tagclass>
+		<info>YUI 菜单</info>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>contentDiv</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>relativeDiv</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>helpDiv</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>advertDiv</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>menuDataSrc</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+	
+	
+	<tag>
+		<name>menuBar</name>
+		<tagclass>com.ecc.emp.web.yui.jsptags.EMPMenuBar</tagclass>
+		<info>YUI 菜单条</info>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>div</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>normalClass</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>activeClass</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	
+		<tag>
+		<name>relatedComboBoxGroup</name>
+		<tagclass>com.ecc.emp.web.yui.jsptags.EMPComboBoxGroup</tagclass>
+		<info>YUI 联动下拉框分组</info>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>comboDataSrc</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+	
+	
+	<tag>
+		<name>relatedComboBox</name>
+		<tagclass>com.ecc.emp.web.yui.jsptags.EMPComboBox</tagclass>
+		<info>YUI 联动下拉框项目</info>
+		<attribute>
+			<name>comboBoxId</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+	<tag>
+		<name>fieldError</name>
+		<tagclass>com.ecc.emp.web.jsptags.EMPFieldErrorMessageTag</tagclass>
+		<info>错误域信息</info>
+		<attribute>
+			<name>dataName</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+</taglib>
